@@ -58,14 +58,14 @@ export function ServiceCard({ service, onSelect }: ServiceCardProps) {
                     key={highlight}
                     className="flex items-start gap-2 text-sm text-neutral-700"
                   >
-                    <span className="mt-[7px] size-1.5 shrink-0 rounded-full bg-gold-500" />
+                    <span className="mt-2 size-1.5 shrink-0 rounded-full bg-gold-500" />
                     {highlight}
                   </li>
                 ))}
               </ul>
             </>
           ) : (
-            <p className="mt-3 line-clamp-2 max-h-0 text-sm leading-relaxed text-neutral-700 opacity-0 transition-all duration-500 ease-premium group-hover:max-h-24 group-hover:opacity-100">
+            <p className="mt-3 line-clamp-2 text-sm leading-relaxed text-neutral-700 opacity-0 transition-opacity duration-500 ease-premium group-hover:opacity-100">
               {service.description}
             </p>
           )}
