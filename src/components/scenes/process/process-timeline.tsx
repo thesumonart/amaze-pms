@@ -21,8 +21,13 @@ export function ProcessTimeline() {
       "(min-width: 1024px) and (prefers-reduced-motion: no-preference)",
       () => {
         const track = trackRef.current;
-        if (!track) return;
-        const distance = () => track.scrollWidth - track.clientWidth;
+        if (!track?.parentElement) return;
+        const container = track.parentElement;
+        // `track` is width:max-content, so it never has internal overflow —
+        // scrollWidth always equals clientWidth. The scrollable distance is
+        // how much wider the track is than the container that clips it.
+        const distance = () =>
+          Math.max(0, track.scrollWidth - container.clientWidth);
 
         const timeline = gsap.timeline({
           scrollTrigger: {
