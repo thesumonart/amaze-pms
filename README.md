@@ -1,36 +1,54 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Amaze PMS — Marketing Site
 
-## Getting Started
+Premium marketing website for **Amaze Property Management Solutions Pvt Ltd** (a division of Action Group) — integrated facility management across Hyderabad, Bangalore, Chennai and pan-India since 2001.
 
-First, run the development server:
+Single-page experience: hero → client trust strip → services bento → why Amaze → process timeline → coverage → testimonials → tech-enabled ops → CTA → footer.
+
+## Stack
+
+- **Next.js (App Router)** + TypeScript strict, **pnpm**
+- **Tailwind CSS v4** — CSS-first tokens via `@theme` in `src/styles/globals.css` (no `tailwind.config.js`)
+- **Biome** for lint + format (`pnpm lint`, `pnpm format`)
+- **shadcn/ui** primitives (button, sheet, tabs, accordion, tooltip, badge, dialog), restyled through semantic tokens
+- **Animation:** [Motion](https://motion.dev) for micro-interactions and scroll reveals · **GSAP + ScrollTrigger** for the pinned process timeline and hero exit · **Lenis** for smooth scroll
+- **lucide-react** icons · **Geist Sans / Geist Mono** via `next/font/google`
+
+## Getting started
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+pnpm install
+pnpm dev      # http://localhost:3000
+pnpm build    # production build
+pnpm lint     # biome check
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Structure
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```
+src/
+├── app/            # layout (fonts, metadata, providers), page (scene composition + JSON-LD)
+├── components/
+│   ├── layouts/    # navbar + mega menu, mobile sheet nav, footer
+│   ├── scenes/     # one folder per page section (hero, services, process, …)
+│   ├── shared/     # reveal-on-scroll, marquee, magnetic button, counter, tilt, hooks
+│   └── ui/         # shadcn primitives
+├── data/           # all copy/content as typed data (services, stats, testimonials, site)
+├── lib/            # gsap registration, cn(), service-dialog event bus
+├── styles/         # globals.css — brand tokens, utilities, keyframes
+└── types/          # shared interfaces
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Conventions
 
-## Learn More
+- Server Components by default; `"use client"` only where hooks/interactivity require it.
+- Content lives in `src/data/*` — components never hard-code copy.
+- One pinned GSAP scene only (process timeline); everything else uses Motion's `whileInView`.
+- `prefers-reduced-motion` disables Lenis, GSAP pinning/scrubbing, marquee, cursor blob, magnetic pull and tilt — opacity fades remain (via `MotionConfig reducedMotion="user"` + CSS).
+- Mobile (<1024px) skips GSAP pinning and the cursor-follow blob.
 
-To learn more about Next.js, take a look at the following resources:
+## Before launch
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Replace placeholder contact details (phone/address in `src/data/site.ts`) — JSON-LD must match the Google Business Profile.
+- Swap placeholder client wordmarks (`src/data/clients.ts`) and representative testimonials for approved ones.
+- Add a real OG image at `public/images/og.png` (1200×630) and reference it in `src/app/layout.tsx` metadata.
+- Brand palette in `globals.css` is a premium interpretation — swap exact hex values if brand assets arrive.

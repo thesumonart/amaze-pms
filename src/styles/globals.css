@@ -1,26 +1,265 @@
 @import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@custom-variant dark (&:is(.dark *));
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+@theme {
+  /* ------------------------------------------------------------------ */
+  /* Raw brand scale — premium interpretation of the Amaze PMS brand.   */
+  /* Swap for exact hex codes when real brand assets are available.     */
+  /* ------------------------------------------------------------------ */
+  --color-ink-950: #060b16;
+  --color-ink-900: #0b1626;
+  --color-navy-800: #10233f;
+  --color-navy-600: #1b3a66;
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  --color-brand-500: #2f6fed;
+  --color-brand-400: #5b8def;
+  --color-brand-300: #93b4f5;
+
+  --color-gold-500: #e7a94c;
+  --color-gold-300: #f3ce94;
+
+  --color-teal-400: #34d0c0;
+
+  --color-neutral-50: #f7f8fa;
+  --color-neutral-100: #eef0f3;
+  --color-neutral-400: #8a93a3; /* dark-background muted text only — fails WCAG AA on white */
+  --color-neutral-500: #5f6979; /* muted text on light backgrounds — 5.55:1 on white */
+  --color-neutral-700: #333c4d;
+  --color-neutral-900: #14181f;
+
+  --color-canvas: #ffffff;
+
+  /* Typography ------------------------------------------------------- */
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-mono:
+    var(--font-geist-mono), ui-monospace, "SFMono-Regular", monospace;
+
+  --text-display: clamp(2.75rem, 2rem + 4vw, 5.25rem);
+  --text-display--line-height: 1.02;
+  --text-display--letter-spacing: -0.02em;
+  --text-h2: clamp(2rem, 1.5rem + 2vw, 3.25rem);
+  --text-h2--line-height: 1.08;
+  --text-h2--letter-spacing: -0.018em;
+  --text-h3: clamp(1.5rem, 1.25rem + 1vw, 2rem);
+  --text-h3--line-height: 1.2;
+  --text-h3--letter-spacing: -0.012em;
+  --text-lede: clamp(1.125rem, 1.05rem + 0.35vw, 1.25rem);
+  --text-lede--line-height: 1.6;
+  --text-eyebrow: 0.8125rem;
+  --text-eyebrow--line-height: 1.2;
+  --text-eyebrow--letter-spacing: 0.08em;
+
+  /* Shape ------------------------------------------------------------ */
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 24px;
+  --radius-xl: 28px;
+  --radius-2xl: 32px;
+  --radius-3xl: 40px;
+  --radius-4xl: 48px;
+
+  /* Motion ----------------------------------------------------------- */
+  --ease-premium: cubic-bezier(0.16, 1, 0.3, 1);
+
+  --animate-marquee: marquee var(--marquee-duration, 40s) linear infinite;
+  @keyframes marquee {
+    to {
+      transform: translateX(-50%);
+    }
+  }
+
+  --animate-aurora: aurora 14s ease-in-out infinite alternate;
+  @keyframes aurora {
+    from {
+      transform: translate3d(-4%, -3%, 0) scale(1);
+    }
+    to {
+      transform: translate3d(4%, 3%, 0) scale(1.12);
+    }
+  }
+
+  --animate-scroll-cue: scroll-cue 1.8s var(--ease-premium) infinite;
+  @keyframes scroll-cue {
+    0% {
+      opacity: 0;
+      transform: translateY(-6px);
+    }
+    35% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+      transform: translateY(8px);
+    }
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* Semantic aliases — feed shadcn primitives from the brand scale. */
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-highlight: var(--highlight);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+}
+
+:root {
+  --background: var(--color-canvas);
+  --foreground: var(--color-ink-950);
+  --card: var(--color-canvas);
+  --card-foreground: var(--color-ink-950);
+  --popover: var(--color-canvas);
+  --popover-foreground: var(--color-ink-950);
+  --primary: var(--color-navy-800);
+  --primary-foreground: #ffffff;
+  --secondary: var(--color-neutral-50);
+  --secondary-foreground: var(--color-navy-800);
+  --muted: var(--color-neutral-50);
+  --muted-foreground: var(--color-neutral-400);
+  --accent: var(--color-brand-500);
+  --accent-foreground: #ffffff;
+  --highlight: var(--color-gold-500);
+  --destructive: #d64545;
+  --border: var(--color-neutral-100);
+  --input: var(--color-neutral-100);
+  --ring: var(--color-brand-400);
+  --radius: 14px;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  html {
+    @apply font-sans;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    text-rendering: optimizeLegibility;
+  }
+
+  /* Anchored sections land below the fixed navbar. */
+  [id] {
+    scroll-margin-top: 5.5rem;
+  }
+
+  ::selection {
+    background: var(--color-brand-500);
+    color: #ffffff;
+  }
+}
+
+/* ------------------------------------------------------------------ */
+/* Layout utilities                                                    */
+/* ------------------------------------------------------------------ */
+
+@utility container-site {
+  margin-inline: auto;
+  width: 100%;
+  max-width: 80rem;
+  padding-inline: 1.25rem;
+
+  @media (min-width: 640px) {
+    padding-inline: 2rem;
+  }
+
+  @media (min-width: 1024px) {
+    padding-inline: 2.5rem;
+  }
+}
+
+/* ------------------------------------------------------------------ */
+/* Surface & texture utilities                                         */
+/* ------------------------------------------------------------------ */
+
+@utility glass-dark {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+@utility glass-light {
+  background: rgba(10, 20, 35, 0.55);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+@utility glass-nav {
+  background: color-mix(in srgb, var(--color-canvas) 72%, transparent);
+  border-bottom: 1px solid
+    color-mix(in srgb, var(--color-ink-950) 8%, transparent);
+  backdrop-filter: blur(20px) saturate(1.4);
+  -webkit-backdrop-filter: blur(20px) saturate(1.4);
+}
+
+@utility text-gradient-brand {
+  background: linear-gradient(
+    100deg,
+    var(--color-brand-300) 0%,
+    var(--color-brand-400) 45%,
+    var(--color-gold-300) 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+@utility glow-cta {
+  box-shadow: 0 0 40px -10px var(--color-brand-500);
+}
+
+@utility glow-gold {
+  box-shadow: 0 0 60px -12px
+    color-mix(in srgb, var(--color-gold-500) 65%, transparent);
+}
+
+/* Film-grain overlay for dark scenes — keeps large gradients from banding. */
+@utility noise {
+  position: relative;
+}
+.noise::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.04;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* ------------------------------------------------------------------ */
+/* Motion hygiene                                                      */
+/* ------------------------------------------------------------------ */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .animate-marquee,
+  .animate-aurora,
+  .animate-scroll-cue {
+    animation: none;
+  }
 }
