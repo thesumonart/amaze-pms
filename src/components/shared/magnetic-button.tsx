@@ -1,13 +1,8 @@
-"use client";
+'use client';
 
-import {
-  motion,
-  useMotionValue,
-  useReducedMotion,
-  useSpring,
-} from "motion/react";
-import type { PointerEvent, ReactNode } from "react";
-import { cn } from "@/lib/utils";
+import { motion, useMotionValue, useReducedMotion, useSpring } from 'motion/react';
+import type { PointerEvent, ReactNode } from 'react';
+import { cn } from '@/lib/utils';
 
 interface MagneticProps {
   children: ReactNode;
@@ -18,11 +13,7 @@ interface MagneticProps {
 
 /** Wrapper that makes its child gently follow the cursor within a small
  * radius. Mouse-only; inert on touch and under prefers-reduced-motion. */
-export function Magnetic({
-  children,
-  className,
-  strength = 16,
-}: MagneticProps) {
+export function Magnetic({ children, className, strength = 16 }: MagneticProps) {
   const reducedMotion = useReducedMotion();
   const x = useMotionValue(0);
   const y = useMotionValue(0);
@@ -30,7 +21,7 @@ export function Magnetic({
   const springY = useSpring(y, { stiffness: 220, damping: 18, mass: 0.3 });
 
   const handleMove = (event: PointerEvent<HTMLDivElement>) => {
-    if (reducedMotion || event.pointerType !== "mouse") return;
+    if (reducedMotion || event.pointerType !== 'mouse') return;
     const rect = event.currentTarget.getBoundingClientRect();
     const offsetX = event.clientX - (rect.left + rect.width / 2);
     const offsetY = event.clientY - (rect.top + rect.height / 2);
@@ -45,7 +36,7 @@ export function Magnetic({
 
   return (
     <motion.div
-      className={cn("inline-flex", className)}
+      className={cn('inline-flex', className)}
       style={{ x: springX, y: springY }}
       onPointerMove={handleMove}
       onPointerLeave={reset}

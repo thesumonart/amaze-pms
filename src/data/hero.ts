@@ -1,11 +1,5 @@
-import {
-  ClipboardCheck,
-  Droplets,
-  type LucideIcon,
-  ShieldCheck,
-  Wrench,
-} from "lucide-react";
-import { stats } from "@/data/stats";
+import { ClipboardCheck, Droplets, type LucideIcon, ShieldCheck, Wrench } from 'lucide-react';
+import { stats } from '@/data/stats';
 
 export interface HeroStat {
   id: string;
@@ -24,19 +18,15 @@ export interface HeroStat {
  * only the shortened label and unit are hero-specific.
  */
 const HERO_STAT_LABELS = [
-  { id: "professionals", unit: "+", label: "Professionals" },
-  { id: "area", unit: "M+", label: "Sq. ft. managed" },
-  { id: "years", unit: " yrs", label: "In operation" },
+  { id: 'professionals', unit: '+', label: 'Professionals' },
+  { id: 'area', unit: 'M+', label: 'Sq. ft. managed' },
+  { id: 'years', unit: ' yrs', label: 'In operation' },
 ] as const;
 
-export const heroStats: HeroStat[] = HERO_STAT_LABELS.flatMap(
-  ({ id, unit, label }) => {
-    const source = stats.find((stat) => stat.id === id);
-    return source
-      ? [{ id, value: source.value, unit, label, context: source.description }]
-      : [];
-  },
-);
+export const heroStats: HeroStat[] = HERO_STAT_LABELS.flatMap(({ id, unit, label }) => {
+  const source = stats.find((stat) => stat.id === id);
+  return source ? [{ id, value: source.value, unit, label, context: source.description }] : [];
+});
 
 export interface HeroSignal {
   id: string;
@@ -53,27 +43,27 @@ export interface HeroSignal {
  */
 export const heroSignals: HeroSignal[] = [
   {
-    id: "inspection",
-    event: "Inspection completed",
-    detail: "Tower B · Level 04 · 12 checkpoints",
+    id: 'inspection',
+    event: 'Inspection completed',
+    detail: 'Tower B · Level 04 · 12 checkpoints',
     icon: ClipboardCheck,
   },
   {
-    id: "ticket",
-    event: "Helpdesk ticket resolved",
-    detail: "Chiller trip · closed in 4 min",
+    id: 'ticket',
+    event: 'Helpdesk ticket resolved',
+    detail: 'Chiller trip · closed in 4 min',
     icon: Wrench,
   },
   {
-    id: "ppm",
-    event: "Preventive service logged",
-    detail: "AHU-02 · filter change · signed off",
+    id: 'ppm',
+    event: 'Preventive service logged',
+    detail: 'AHU-02 · filter change · signed off',
     icon: ShieldCheck,
   },
   {
-    id: "water",
-    event: "Water quality test passed",
-    detail: "STP-01 · pH 7.2 · TDS 380 ppm",
+    id: 'water',
+    event: 'Water quality test passed',
+    detail: 'STP-01 · pH 7.2 · TDS 380 ppm',
     icon: Droplets,
   },
 ];

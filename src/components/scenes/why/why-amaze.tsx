@@ -1,9 +1,9 @@
-import type { LucideIcon } from "lucide-react";
-import { Award, BadgeCheck, Building2, Users } from "lucide-react";
-import { AnimatedCounter } from "@/components/shared/animated-counter";
-import { RevealGroup, RevealItem } from "@/components/shared/reveal-on-scroll";
-import { SectionHeading } from "@/components/shared/section-heading";
-import { stats } from "@/data/stats";
+import type { LucideIcon } from 'lucide-react';
+import { Award, BadgeCheck, Building2, Users } from 'lucide-react';
+import { AnimatedCounter } from '@/components/shared/animated-counter';
+import { RevealGroup, RevealItem } from '@/components/shared/reveal-on-scroll';
+import { SectionHeading } from '@/components/shared/section-heading';
+import { stats } from '@/data/stats';
 
 const STAT_ICONS: Record<string, LucideIcon> = {
   professionals: Users,
@@ -20,7 +20,7 @@ export function WhyAmaze() {
           eyebrow="Why Amaze"
           title={
             <>
-              Scale you can measure.{" "}
+              Scale you can measure.{' '}
               <span className="text-brand-500">Standards you can audit.</span>
             </>
           }
@@ -32,21 +32,19 @@ export function WhyAmaze() {
             const Icon = STAT_ICONS[stat.id] ?? Users;
             return (
               <RevealItem key={stat.id} className="flex">
-                <article className="group relative flex w-full flex-col overflow-hidden rounded-lg border border-border bg-card p-7 transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_24px_48px_-20px_rgba(16,35,63,0.22)]">
-                  <span className="flex size-11 items-center justify-center rounded-md bg-gold-500/10 text-gold-500 transition-colors duration-300 group-hover:bg-gold-500 group-hover:text-ink-950">
+                <article className="group border-border bg-card relative flex w-full flex-col overflow-hidden rounded-lg border p-7 transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_24px_48px_-20px_rgba(16,35,63,0.22)]">
+                  <span className="bg-gold-500/10 text-gold-500 group-hover:bg-gold-500 group-hover:text-ink-950 flex size-11 items-center justify-center rounded-md transition-colors duration-300">
                     <Icon className="size-5" />
                   </span>
-                  <p className="mt-6 font-mono text-4xl font-semibold tracking-tight text-ink-950">
+                  <p className="text-ink-950 mt-6 font-mono text-4xl font-semibold tracking-tight">
                     <AnimatedCounter value={stat.value} />
                     <span className="text-brand-500">{stat.suffix}</span>
                   </p>
-                  <h3 className="mt-2 text-sm font-semibold text-ink-950">
-                    {stat.label}
-                  </h3>
+                  <h3 className="text-ink-950 mt-2 text-sm font-semibold">{stat.label}</h3>
                   <p className="mt-2 text-sm leading-relaxed text-neutral-500">
                     {stat.description}
                   </p>
-                  <span className="absolute inset-x-0 bottom-0 h-0.5 origin-left scale-x-0 bg-[linear-gradient(90deg,var(--color-brand-500),var(--color-gold-500))] transition-transform duration-500 ease-premium group-hover:scale-x-100" />
+                  <span className="ease-premium absolute inset-x-0 bottom-0 h-0.5 origin-left scale-x-0 bg-[linear-gradient(90deg,var(--color-brand-500),var(--color-gold-500))] transition-transform duration-500 group-hover:scale-x-100" />
                 </article>
               </RevealItem>
             );

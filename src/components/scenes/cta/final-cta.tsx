@@ -1,14 +1,10 @@
-"use client";
+'use client';
 
-import { ArrowRight, Phone } from "lucide-react";
-import { Magnetic } from "@/components/shared/magnetic-button";
-import {
-  Reveal,
-  RevealGroup,
-  RevealItem,
-} from "@/components/shared/reveal-on-scroll";
-import { Button } from "@/components/ui/button";
-import { site } from "@/data/site";
+import { ArrowRight, Phone } from 'lucide-react';
+import { Magnetic } from '@/components/shared/magnetic-button';
+import { Reveal, RevealGroup, RevealItem } from '@/components/shared/reveal-on-scroll';
+import { Button } from '@/components/ui/button';
+import { site } from '@/data/site';
 
 export function FinalCta() {
   return (
@@ -27,34 +23,30 @@ export function FinalCta() {
 
       <RevealGroup className="container-site relative flex flex-col items-center text-center">
         <RevealItem>
-          <p className="font-mono text-eyebrow uppercase text-gold-300">
-            Free site inspection
-          </p>
+          <p className="text-eyebrow text-gold-300 font-mono uppercase">Free site inspection</p>
         </RevealItem>
         <RevealItem>
-          <h2 className="mt-5 max-w-3xl text-h2 font-semibold text-white text-balance">
+          <h2 className="text-h2 mt-5 max-w-3xl font-semibold text-balance text-white">
             Walk your site with us. Keep the findings either way.
           </h2>
         </RevealItem>
         <RevealItem>
-          <p className="mt-5 max-w-xl text-lede text-neutral-400">
-            A senior operations lead — not a sales rep — audits your facility
-            and hands you a costed, SLA-backed plan within seven days.
+          <p className="text-lede mt-5 max-w-xl text-neutral-400">
+            A senior operations lead — not a sales rep — audits your facility and hands you a
+            costed, SLA-backed plan within seven days.
           </p>
         </RevealItem>
         <RevealItem className="mt-10 flex flex-col items-center gap-4 sm:flex-row">
           <Magnetic>
             <Button asChild variant="premium" size="xl" className="glow-gold">
-              <a
-                href={`mailto:${site.email}?subject=Free site inspection request`}
-              >
+              <a href={`mailto:${site.email}?subject=Free site inspection request`}>
                 Book a Free Inspection
                 <ArrowRight data-icon="inline-end" className="size-4" />
               </a>
             </Button>
           </Magnetic>
           <Button asChild variant="premium-outline" size="xl">
-            <a href={`tel:${site.phone.replace(/\s/g, "")}`}>
+            <a href={`tel:${site.phone.replace(/\s/g, '')}`}>
               <Phone data-icon="inline-start" className="size-4" />
               {site.phone}
             </a>
@@ -63,8 +55,8 @@ export function FinalCta() {
       </RevealGroup>
 
       <Reveal delay={0.3} className="relative mt-8 text-center">
-        <p className="font-mono text-xs uppercase tracking-[0.2em] text-neutral-400">
-          Response within 24 hours · {site.serviceAreas.join(" · ")}
+        <p className="font-mono text-xs tracking-[0.2em] text-neutral-400 uppercase">
+          Response within 24 hours · {site.serviceAreas.join(' · ')}
         </p>
       </Reveal>
     </section>

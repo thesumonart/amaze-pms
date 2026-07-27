@@ -1,11 +1,11 @@
-"use client";
+'use client';
 
-import { ArrowRight } from "lucide-react";
-import { AnimatePresence, motion } from "motion/react";
-import type { MouseEvent } from "react";
-import { DURATION, EASE_PREMIUM } from "@/components/shared/motion";
-import { serviceCategories, services } from "@/data/services";
-import { requestServiceDialog } from "@/lib/service-bus";
+import { ArrowRight } from 'lucide-react';
+import { AnimatePresence, motion } from 'motion/react';
+import type { MouseEvent } from 'react';
+import { DURATION, EASE_PREMIUM } from '@/components/shared/motion';
+import { serviceCategories, services } from '@/data/services';
+import { requestServiceDialog } from '@/lib/service-bus';
 
 interface MegaMenuProps {
   open: boolean;
@@ -40,11 +40,11 @@ export function MegaMenu({
           onMouseLeave={onPointerLeave}
         >
           {/* Only the panel takes the pointer — the gutters beside it must not hold the menu open. */}
-          <div className="pointer-events-auto w-full max-w-5xl overflow-hidden rounded-lg border border-border bg-popover shadow-[0_24px_80px_-24px_rgba(6,11,22,0.35)]">
+          <div className="border-border bg-popover pointer-events-auto w-full max-w-5xl overflow-hidden rounded-lg border shadow-[0_24px_80px_-24px_rgba(6,11,22,0.35)]">
             <div className="grid grid-cols-2 gap-x-8 gap-y-8 p-8 xl:grid-cols-4">
               {serviceCategories.map((category) => (
                 <div key={category.id}>
-                  <p className="font-mono text-eyebrow uppercase text-neutral-500">
+                  <p className="text-eyebrow font-mono text-neutral-500 uppercase">
                     {category.label}
                   </p>
                   <ul className="mt-4 space-y-1">
@@ -55,13 +55,13 @@ export function MegaMenu({
                           <button
                             type="button"
                             onClick={() => handleServiceClick(service.slug)}
-                            className="group flex w-full cursor-pointer items-start gap-3 rounded-md p-2 text-left transition-colors hover:bg-muted"
+                            className="group hover:bg-muted flex w-full cursor-pointer items-start gap-3 rounded-md p-2 text-left transition-colors"
                           >
-                            <span className="mt-0.5 flex size-8 shrink-0 items-center justify-center rounded-sm bg-brand-500/10 text-brand-500 transition-colors group-hover:bg-brand-500 group-hover:text-white">
+                            <span className="bg-brand-500/10 text-brand-500 group-hover:bg-brand-500 mt-0.5 flex size-8 shrink-0 items-center justify-center rounded-sm transition-colors group-hover:text-white">
                               <service.icon className="size-4" />
                             </span>
                             <span>
-                              <span className="block text-sm font-medium text-ink-950">
+                              <span className="text-ink-950 block text-sm font-medium">
                                 {service.name}
                               </span>
                               <span className="mt-0.5 block text-xs text-neutral-500">
@@ -75,7 +75,7 @@ export function MegaMenu({
                 </div>
               ))}
             </div>
-            <div className="flex items-center justify-between gap-4 border-t border-border bg-muted px-8 py-4">
+            <div className="border-border bg-muted flex items-center justify-between gap-4 border-t px-8 py-4">
               <p className="text-sm text-neutral-700">
                 Not sure where to start? We'll walk your site and tell you.
               </p>
@@ -83,9 +83,9 @@ export function MegaMenu({
                 href="#contact"
                 onClick={(event) => {
                   onClose();
-                  onContactClick(event, "#contact");
+                  onContactClick(event, '#contact');
                 }}
-                className="inline-flex items-center gap-1.5 text-sm font-semibold text-brand-500 hover:text-navy-600"
+                className="text-brand-500 hover:text-navy-600 inline-flex items-center gap-1.5 text-sm font-semibold"
               >
                 Book a free inspection
                 <ArrowRight className="size-4" />

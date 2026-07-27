@@ -1,6 +1,6 @@
-"use client";
+'use client';
 
-import { useEffect, useLayoutEffect } from "react";
+import { useEffect, useLayoutEffect } from 'react';
 
 /**
  * `useLayoutEffect` in the browser, `useEffect` on the server. Lets us stamp
@@ -8,4 +8,4 @@ import { useEffect, useLayoutEffect } from "react";
  * paint — so nothing flashes fully-drawn — without React's SSR warning.
  */
 export const useIsomorphicLayoutEffect =
-  typeof window === "undefined" ? useEffect : useLayoutEffect;
+  typeof window === 'undefined' ? useEffect : useLayoutEffect;

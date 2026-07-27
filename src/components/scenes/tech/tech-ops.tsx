@@ -1,49 +1,38 @@
-import {
-  ClipboardCheck,
-  LayoutDashboard,
-  Leaf,
-  Recycle,
-  Zap,
-} from "lucide-react";
-import { TechDashboard } from "@/components/scenes/tech/tech-dashboard";
-import {
-  Reveal,
-  RevealGroup,
-  RevealItem,
-} from "@/components/shared/reveal-on-scroll";
-import { SectionHeading } from "@/components/shared/section-heading";
-import { TiltCard } from "@/components/shared/tilt-card";
+import { ClipboardCheck, LayoutDashboard, Leaf, Recycle, Zap } from 'lucide-react';
+import { TechDashboard } from '@/components/scenes/tech/tech-dashboard';
+import { Reveal, RevealGroup, RevealItem } from '@/components/shared/reveal-on-scroll';
+import { SectionHeading } from '@/components/shared/section-heading';
 
 const OPS_POINTS = [
   {
     icon: LayoutDashboard,
     title: "MIS you'll actually read",
     description:
-      "Monthly dashboards covering SLAs, incidents, consumption and cost — reviewed with you, not emailed into a void.",
+      'Monthly dashboards covering SLAs, incidents, consumption and cost — reviewed with you, not emailed into a void.',
   },
   {
     icon: ClipboardCheck,
-    title: "Digital checklists, photo proof",
+    title: 'Digital checklists, photo proof',
     description:
-      "Every round is logged on mobile with timestamps and photos, so quality is verifiable — not anecdotal.",
+      'Every round is logged on mobile with timestamps and photos, so quality is verifiable — not anecdotal.',
   },
   {
     icon: Recycle,
-    title: "Water that works twice",
+    title: 'Water that works twice',
     description:
-      "Our STP/WTP teams recycle treated water into flushing and landscaping, cutting fresh-water demand.",
+      'Our STP/WTP teams recycle treated water into flushing and landscaping, cutting fresh-water demand.',
   },
   {
     icon: Leaf,
-    title: "Green-certified consumables",
+    title: 'Green-certified consumables',
     description:
-      "Eco-labelled chemicals and dosing controls protect indoor air quality and the people in your building.",
+      'Eco-labelled chemicals and dosing controls protect indoor air quality and the people in your building.',
   },
   {
     icon: Zap,
-    title: "Energy under a microscope",
+    title: 'Energy under a microscope',
     description:
-      "Utility tracking flags abnormal consumption early — before it becomes a bill you have to explain.",
+      'Utility tracking flags abnormal consumption early — before it becomes a bill you have to explain.',
   },
 ];
 
@@ -60,8 +49,7 @@ export function TechOps() {
             eyebrow="Tech-enabled, sustainable ops"
             title={
               <>
-                Run on data.{" "}
-                <span className="text-gradient-brand">Easy on the planet.</span>
+                Run on data. <span className="text-gradient-brand">Easy on the planet.</span>
               </>
             }
             lede="Facility management is a numbers business. We instrument every site so you see the numbers too — and we engineer the waste out of water, energy and chemicals."
@@ -73,9 +61,7 @@ export function TechOps() {
                   <point.icon className="size-5" />
                 </span>
                 <div>
-                  <h3 className="text-base font-semibold text-white">
-                    {point.title}
-                  </h3>
+                  <h3 className="text-base font-semibold text-white">{point.title}</h3>
                   <p className="mt-1 text-sm leading-relaxed text-neutral-400">
                     {point.description}
                   </p>
@@ -86,9 +72,7 @@ export function TechOps() {
         </div>
 
         <Reveal delay={0.15} className="lg:justify-self-end">
-          <TiltCard className="max-w-lg">
-            <TechDashboard />
-          </TiltCard>
+          <TechDashboard />
         </Reveal>
       </div>
     </section>

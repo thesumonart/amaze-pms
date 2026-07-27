@@ -1,6 +1,5 @@
 import dynamic from 'next/dynamic';
 import { Hero } from '@/components/scenes/hero/hero';
-// import { Hero } from '@/components/scenes/hero/hero';
 import { ServicesBento } from '@/components/scenes/services/services-bento';
 import { ClientMarquee } from '@/components/scenes/trust/client-marquee';
 import { site } from '@/data/site';
@@ -24,8 +23,6 @@ const FinalCta = dynamic(() =>
   import('@/components/scenes/cta/final-cta').then((mod) => mod.FinalCta)
 );
 
-// Placeholder contact details in `site` — swap for the client's confirmed
-// NAP data before launch so structured data matches Google Business Profile.
 const localBusinessJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'LocalBusiness',

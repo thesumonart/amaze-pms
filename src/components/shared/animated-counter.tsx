@@ -1,7 +1,7 @@
-"use client";
+'use client';
 
-import { animate, useInView, useReducedMotion } from "motion/react";
-import { useEffect, useRef, useState } from "react";
+import { animate, useInView, useReducedMotion } from 'motion/react';
+import { useEffect, useRef, useState } from 'react';
 
 interface AnimatedCounterProps {
   value: number;
@@ -11,13 +11,9 @@ interface AnimatedCounterProps {
 
 /** Counts from 0 to `value` when scrolled into view; jumps straight to the
  * final value under prefers-reduced-motion. */
-export function AnimatedCounter({
-  value,
-  className,
-  durationSeconds = 1.8,
-}: AnimatedCounterProps) {
+export function AnimatedCounter({ value, className, durationSeconds = 1.8 }: AnimatedCounterProps) {
   const ref = useRef<HTMLSpanElement>(null);
-  const inView = useInView(ref, { once: true, margin: "0px 0px -40px 0px" });
+  const inView = useInView(ref, { once: true, margin: '0px 0px -40px 0px' });
   const reducedMotion = useReducedMotion();
   const [display, setDisplay] = useState(0);
 
@@ -37,7 +33,7 @@ export function AnimatedCounter({
 
   return (
     <span ref={ref} className={className}>
-      {display.toLocaleString("en-IN")}
+      {display.toLocaleString('en-IN')}
     </span>
   );
 }

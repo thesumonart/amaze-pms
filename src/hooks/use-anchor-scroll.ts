@@ -1,8 +1,8 @@
-"use client";
+'use client';
 
-import type { MouseEvent } from "react";
-import { useCallback } from "react";
-import { useLenis } from "@/hooks/use-lenis";
+import type { MouseEvent } from 'react';
+import { useCallback } from 'react';
+import { useLenis } from '@/hooks/use-lenis';
 
 /**
  * Smooth-scrolls in-page anchors through Lenis when it's active; falls back
@@ -13,16 +13,16 @@ export function useAnchorScroll(offset = -96) {
 
   return useCallback(
     (event: MouseEvent<HTMLElement>, href: string) => {
-      if (!href.startsWith("#")) return;
+      if (!href.startsWith('#')) return;
       const target = document.querySelector<HTMLElement>(href);
       if (!target) return;
       event.preventDefault();
       if (lenis) {
         lenis.scrollTo(target, { offset });
       } else {
-        target.scrollIntoView({ block: "start" });
+        target.scrollIntoView({ block: 'start' });
       }
     },
-    [lenis, offset],
+    [lenis, offset]
   );
 }

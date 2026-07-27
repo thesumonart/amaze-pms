@@ -1,16 +1,10 @@
-"use client";
+'use client';
 
-import "lenis/dist/lenis.css";
+import 'lenis/dist/lenis.css';
 
-import Lenis from "lenis";
-import {
-  createContext,
-  type ReactNode,
-  useContext,
-  useEffect,
-  useState,
-} from "react";
-import { gsap, ScrollTrigger } from "@/lib/gsap";
+import Lenis from 'lenis';
+import { createContext, type ReactNode, useContext, useEffect, useState } from 'react';
+import { gsap, ScrollTrigger } from '@/lib/gsap';
 
 const LenisContext = createContext<Lenis | null>(null);
 
@@ -31,7 +25,7 @@ export function LenisProvider({ children }: LenisProviderProps) {
   const [lenis, setLenis] = useState<Lenis | null>(null);
 
   useEffect(() => {
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
       return;
     }
 
@@ -40,7 +34,7 @@ export function LenisProvider({ children }: LenisProviderProps) {
       easing: (t) => Math.min(1, 1.001 - 2 ** (-10 * t)),
     });
 
-    instance.on("scroll", ScrollTrigger.update);
+    instance.on('scroll', ScrollTrigger.update);
     const tick = (time: number) => instance.raf(time * 1000);
     gsap.ticker.add(tick);
     gsap.ticker.lagSmoothing(0);
@@ -53,7 +47,5 @@ export function LenisProvider({ children }: LenisProviderProps) {
     };
   }, []);
 
-  return (
-    <LenisContext.Provider value={lenis}>{children}</LenisContext.Provider>
-  );
+  return <LenisContext.Provider value={lenis}>{children}</LenisContext.Provider>;
 }

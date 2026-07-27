@@ -1,13 +1,8 @@
-"use client";
+'use client';
 
-import {
-  motion,
-  useMotionValue,
-  useReducedMotion,
-  useSpring,
-} from "motion/react";
-import type { PointerEvent, ReactNode } from "react";
-import { cn } from "@/lib/utils";
+import { motion, useMotionValue, useReducedMotion, useSpring } from 'motion/react';
+import type { PointerEvent, ReactNode } from 'react';
+import { cn } from '@/lib/utils';
 
 interface TiltCardProps {
   children: ReactNode;
@@ -26,7 +21,7 @@ export function TiltCard({ children, className, maxTilt = 7 }: TiltCardProps) {
   const springRotateY = useSpring(rotateY, { stiffness: 160, damping: 20 });
 
   const handleMove = (event: PointerEvent<HTMLDivElement>) => {
-    if (reducedMotion || event.pointerType !== "mouse") return;
+    if (reducedMotion || event.pointerType !== 'mouse') return;
     const rect = event.currentTarget.getBoundingClientRect();
     const ratioX = (event.clientX - rect.left) / rect.width - 0.5;
     const ratioY = (event.clientY - rect.top) / rect.height - 0.5;
@@ -42,11 +37,11 @@ export function TiltCard({ children, className, maxTilt = 7 }: TiltCardProps) {
   return (
     <div style={{ perspective: 1200 }}>
       <motion.div
-        className={cn("will-change-transform", className)}
+        className={cn('will-change-transform', className)}
         style={{
           rotateX: springRotateX,
           rotateY: springRotateY,
-          transformStyle: "preserve-3d",
+          transformStyle: 'preserve-3d',
         }}
         onPointerMove={handleMove}
         onPointerLeave={reset}

@@ -1,4 +1,4 @@
-import type { Variants } from "motion/react";
+import type { Variants } from 'motion/react';
 
 /** Expo-out — the house easing for nearly all motion. */
 export const EASE_PREMIUM: [number, number, number, number] = [0.16, 1, 0.3, 1];
@@ -12,7 +12,7 @@ export const DURATION = {
 export const STAGGER = 0.08;
 
 /** Generous bottom margin so reveals start before elements hit the fold. */
-export const VIEWPORT = { once: true, margin: "0px 0px -80px 0px" } as const;
+export const VIEWPORT = { once: true, margin: '0px 0px -80px 0px' } as const;
 
 export const fadeRise: Variants = {
   hidden: { opacity: 0, y: 24 },

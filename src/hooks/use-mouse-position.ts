@@ -1,7 +1,7 @@
-"use client";
+'use client';
 
-import { type MotionValue, useMotionValue } from "motion/react";
-import { type RefObject, useEffect } from "react";
+import { type MotionValue, useMotionValue } from 'motion/react';
+import { type RefObject, useEffect } from 'react';
 
 interface MousePosition {
   x: MotionValue<number>;
@@ -19,7 +19,7 @@ interface MousePosition {
  */
 export function useMousePosition(
   container?: RefObject<Element | null>,
-  enabled = true,
+  enabled = true
 ): MousePosition {
   const x = useMotionValue(0);
   const y = useMotionValue(0);
@@ -31,8 +31,8 @@ export function useMousePosition(
       x.set(event.clientX - (rect?.left ?? 0));
       y.set(event.clientY - (rect?.top ?? 0));
     };
-    window.addEventListener("pointermove", onMove, { passive: true });
-    return () => window.removeEventListener("pointermove", onMove);
+    window.addEventListener('pointermove', onMove, { passive: true });
+    return () => window.removeEventListener('pointermove', onMove);
   }, [container, enabled, x, y]);
 
   return { x, y };

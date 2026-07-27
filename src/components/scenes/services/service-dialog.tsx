@@ -1,19 +1,19 @@
-"use client";
+'use client';
 
-import { ArrowRight, CircleCheck } from "lucide-react";
-import type { MouseEvent } from "react";
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
+import { ArrowRight, CircleCheck } from 'lucide-react';
+import type { MouseEvent } from 'react';
+import { Badge } from '@/components/ui/badge';
+import { Button } from '@/components/ui/button';
 import {
   Dialog,
   DialogContent,
   DialogDescription,
   DialogHeader,
   DialogTitle,
-} from "@/components/ui/dialog";
-import { serviceCategories } from "@/data/services";
-import { useAnchorScroll } from "@/hooks/use-anchor-scroll";
-import type { Service } from "@/types";
+} from '@/components/ui/dialog';
+import { serviceCategories } from '@/data/services';
+import { useAnchorScroll } from '@/hooks/use-anchor-scroll';
+import type { Service } from '@/types';
 
 interface ServiceDialogProps {
   service: Service | null;
@@ -25,11 +25,11 @@ export function ServiceDialog({ service, onClose }: ServiceDialogProps) {
 
   const handleCta = (event: MouseEvent<HTMLElement>) => {
     onClose();
-    anchorScroll(event, "#contact");
+    anchorScroll(event, '#contact');
   };
 
   const categoryLabel = serviceCategories.find(
-    (category) => category.id === service?.category,
+    (category) => category.id === service?.category
   )?.label;
 
   return (
@@ -39,7 +39,7 @@ export function ServiceDialog({ service, onClose }: ServiceDialogProps) {
         if (!open) onClose();
       }}
     >
-      <DialogContent className="w-[calc(100%-2rem)] max-w-md gap-0 rounded-lg p-0 [&_[data-slot=dialog-close]]:text-white/50 [&_[data-slot=dialog-close]]:hover:bg-white/10 [&_[data-slot=dialog-close]]:hover:text-white data-open:slide-in-from-bottom-8 data-closed:slide-out-to-bottom-8">
+      <DialogContent className="data-open:slide-in-from-bottom-8 data-closed:slide-out-to-bottom-8 w-[calc(100%-2rem)] max-w-md gap-0 rounded-lg p-0 **:data-[slot=dialog-close]:text-white/50 **:data-[slot=dialog-close]:hover:bg-white/10 **:data-[slot=dialog-close]:hover:text-white">
         {service ? (
           <>
             <div className="relative overflow-hidden rounded-t-lg bg-[linear-gradient(135deg,var(--color-ink-950),var(--color-navy-800))] p-7">
@@ -68,26 +68,16 @@ export function ServiceDialog({ service, onClose }: ServiceDialogProps) {
             </div>
 
             <div className="p-7">
-              <p className="text-sm leading-relaxed text-neutral-700">
-                {service.description}
-              </p>
+              <p className="text-sm leading-relaxed text-neutral-700">{service.description}</p>
               <ul className="mt-5 space-y-2.5">
                 {service.highlights.map((highlight) => (
-                  <li
-                    key={highlight}
-                    className="flex items-start gap-2.5 text-sm text-neutral-700"
-                  >
+                  <li key={highlight} className="flex items-start gap-2.5 text-sm text-neutral-700">
                     <CircleCheck className="mt-0.5 size-4 shrink-0 text-teal-400" />
                     {highlight}
                   </li>
                 ))}
               </ul>
-              <Button
-                asChild
-                variant="premium"
-                size="xl"
-                className="mt-7 w-full"
-              >
+              <Button asChild variant="premium" size="xl" className="mt-7 w-full">
                 <a href="#contact" onClick={handleCta}>
                   Scope this for my property
                   <ArrowRight data-icon="inline-end" className="size-4" />

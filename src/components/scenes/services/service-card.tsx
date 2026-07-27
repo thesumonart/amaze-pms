@@ -34,9 +34,7 @@ export function ServiceCard({ service, featured, onSelect }: ServiceCardProps) {
           </div>
           <h3 className="text-ink-950 mt-5 text-lg font-semibold tracking-tight">{service.name}</h3>
           <p className="mt-1 text-sm text-neutral-500">{service.tagline}</p>
-          <p className="mt-3 text-sm leading-relaxed text-neutral-700">
-            {service.description}
-          </p>
+          <p className="mt-3 text-sm leading-relaxed text-neutral-700">{service.description}</p>
           {featured && (
             <ul className="mt-4 space-y-2">
               {service.highlights.slice(0, 3).map((h) => (

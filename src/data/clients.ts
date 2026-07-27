@@ -1,4 +1,4 @@
-import type { ClientLogo } from "@/types";
+import type { ClientLogo } from '@/types';
 
 /**
  * Client logos, one file per client under `/public/images/clients`.
@@ -10,63 +10,63 @@ import type { ClientLogo } from "@/types";
  */
 export const clientLogos: ClientLogo[] = [
   {
-    id: "wipro",
-    name: "Wipro",
-    logo: { src: "/images/clients/client1.webp", width: 1600, height: 900 },
+    id: 'wipro',
+    name: 'Wipro',
+    logo: { src: '/images/clients/client1.webp', width: 1600, height: 900 },
   },
   {
-    id: "divyasree",
-    name: "DivyaSree",
-    logo: { src: "/images/clients/client2.webp", width: 322, height: 156 },
+    id: 'divyasree',
+    name: 'DivyaSree',
+    logo: { src: '/images/clients/client2.webp', width: 322, height: 156 },
   },
   {
-    id: "sri-sairam-towers",
-    name: "Sri Sairam Towers",
-    logo: { src: "/images/clients/client3.webp", width: 254, height: 91 },
+    id: 'sri-sairam-towers',
+    name: 'Sri Sairam Towers',
+    logo: { src: '/images/clients/client3.webp', width: 254, height: 91 },
   },
   {
-    id: "lodha",
-    name: "Lodha",
-    logo: { src: "/images/clients/client4.webp", width: 379, height: 133 },
+    id: 'lodha',
+    name: 'Lodha',
+    logo: { src: '/images/clients/client4.webp', width: 379, height: 133 },
   },
   {
-    id: "oliva",
-    name: "Oliva Skin & Hair Clinic",
-    logo: { src: "/images/clients/client5.webp", width: 303, height: 167 },
+    id: 'oliva',
+    name: 'Oliva Skin & Hair Clinic',
+    logo: { src: '/images/clients/client5.webp', width: 303, height: 167 },
   },
   {
-    id: "lt-technology-services",
-    name: "L&T Technology Services",
-    logo: { src: "/images/clients/client6.webp", width: 368, height: 137 },
+    id: 'lt-technology-services',
+    name: 'L&T Technology Services',
+    logo: { src: '/images/clients/client6.webp', width: 368, height: 137 },
   },
   {
-    id: "jll",
-    name: "JLL",
-    logo: { src: "/images/clients/client7.webp", width: 138, height: 66 },
+    id: 'jll',
+    name: 'JLL',
+    logo: { src: '/images/clients/client7.webp', width: 138, height: 66 },
   },
   {
-    id: "ashvita-mahindra-lifespaces",
-    name: "Ashvita by Mahindra Lifespaces",
-    logo: { src: "/images/clients/client8.webp", width: 162, height: 56 },
+    id: 'ashvita-mahindra-lifespaces',
+    name: 'Ashvita by Mahindra Lifespaces',
+    logo: { src: '/images/clients/client8.webp', width: 162, height: 56 },
   },
   {
-    id: "cbre",
-    name: "CBRE",
-    logo: { src: "/images/clients/client9.webp", width: 143, height: 50 },
+    id: 'cbre',
+    name: 'CBRE',
+    logo: { src: '/images/clients/client9.webp', width: 143, height: 50 },
   },
   {
-    id: "golf-view",
-    name: "Golf View",
-    logo: { src: "/images/clients/client10.webp", width: 167, height: 79 },
+    id: 'golf-view',
+    name: 'Golf View',
+    logo: { src: '/images/clients/client10.webp', width: 167, height: 79 },
   },
   {
-    id: "kalpataru",
-    name: "Kalpataru",
-    logo: { src: "/images/clients/client11.webp", width: 210, height: 60 },
+    id: 'kalpataru',
+    name: 'Kalpataru',
+    logo: { src: '/images/clients/client11.webp', width: 210, height: 60 },
   },
   {
-    id: "hill-county",
-    name: "Hill County",
-    logo: { src: "/images/clients/client12.webp", width: 287, height: 119 },
+    id: 'hill-county',
+    name: 'Hill County',
+    logo: { src: '/images/clients/client12.webp', width: 287, height: 119 },
   },
 ];

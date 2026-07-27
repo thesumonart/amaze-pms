@@ -1,4 +1,4 @@
-import type { LucideIcon } from "lucide-react";
+import type { LucideIcon } from 'lucide-react';
 
 export interface Service {
   slug: string;
@@ -10,11 +10,7 @@ export interface Service {
   icon: LucideIcon;
 }
 
-export type ServiceCategoryId =
-  | "cleaning"
-  | "engineering"
-  | "safety"
-  | "outdoors";
+export type ServiceCategoryId = 'cleaning' | 'engineering' | 'safety' | 'outdoors';
 
 export interface ServiceCategory {
   id: ServiceCategoryId;

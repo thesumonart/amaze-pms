@@ -1,14 +1,14 @@
-"use client";
+'use client';
 
-import { motion } from "motion/react";
-import type { ReactNode } from "react";
+import { motion } from 'motion/react';
+import type { ReactNode } from 'react';
 import {
   DURATION,
   EASE_PREMIUM,
   revealChild,
   revealParent,
   VIEWPORT,
-} from "@/components/shared/motion";
+} from '@/components/shared/motion';
 
 interface RevealProps {
   children: ReactNode;
@@ -19,12 +19,7 @@ interface RevealProps {
 }
 
 /** Single-element scroll reveal: fade + rise, fired once. */
-export function Reveal({
-  children,
-  className,
-  delay = 0,
-  y = 24,
-}: RevealProps) {
+export function Reveal({ children, className, delay = 0, y = 24 }: RevealProps) {
   return (
     <motion.div
       className={className}
