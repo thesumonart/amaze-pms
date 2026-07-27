@@ -20,7 +20,7 @@ interface ServiceDialogProps {
   onClose: () => void;
 }
 
-export function ServiceDialog({ service, onClose }: ServiceDialogProps) {
+export const ServiceDialog = ({ service, onClose }: ServiceDialogProps) => {
   const anchorScroll = useAnchorScroll();
 
   const handleCta = (event: MouseEvent<HTMLElement>) => {

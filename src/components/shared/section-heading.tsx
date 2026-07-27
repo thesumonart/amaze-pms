@@ -12,14 +12,14 @@ interface SectionHeadingProps {
   className?: string;
 }
 
-export function SectionHeading({
+export const SectionHeading = ({
   eyebrow,
   title,
   lede,
   align = 'left',
   onDark = false,
   className,
-}: SectionHeadingProps) {
+}: SectionHeadingProps) => {
   return (
     <Reveal className={cn('max-w-2xl', align === 'center' && 'mx-auto text-center', className)}>
       <p

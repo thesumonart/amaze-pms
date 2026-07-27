@@ -36,7 +36,7 @@ const OPS_POINTS = [
   },
 ];
 
-export function TechOps() {
+export const TechOps = () => {
   return (
     <section
       id="technology"
@@ -71,10 +71,10 @@ export function TechOps() {
           </RevealGroup>
         </div>
 
-        <Reveal delay={0.15} className="lg:justify-self-end">
+        <Reveal delay={0.15} className="w-full">
           <TechDashboard />
         </Reveal>
       </div>
     </section>
   );
-}
+};

@@ -11,7 +11,7 @@ interface AnimatedCounterProps {
 
 /** Counts from 0 to `value` when scrolled into view; jumps straight to the
  * final value under prefers-reduced-motion. */
-export function AnimatedCounter({ value, className, durationSeconds = 1.8 }: AnimatedCounterProps) {
+export const AnimatedCounter = ({ value, className, durationSeconds = 1.8 }: AnimatedCounterProps) => {
   const ref = useRef<HTMLSpanElement>(null);
   const inView = useInView(ref, { once: true, margin: '0px 0px -40px 0px' });
   const reducedMotion = useReducedMotion();

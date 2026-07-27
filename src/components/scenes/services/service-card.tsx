@@ -11,7 +11,7 @@ interface ServiceCardProps {
   onSelect: (service: Service) => void;
 }
 
-export function ServiceCard({ service, featured, onSelect }: ServiceCardProps) {
+export const ServiceCard = ({ service, featured, onSelect }: ServiceCardProps) => {
   return (
     <RevealItem className="break-inside-avoid">
       <motion.button

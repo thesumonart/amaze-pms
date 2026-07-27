@@ -9,7 +9,7 @@ interface LogoProps {
   priority?: boolean;
 }
 
-export function Logo({ onDark = false, variant = 'full', className, priority = false }: LogoProps) {
+export const Logo = ({ onDark = false, variant = 'full', className, priority = false }: LogoProps) => {
   const asset = (variant === 'mark' ? logoMark : null) ?? (onDark ? logoDark : null) ?? logo;
   const needsKnockout = onDark && asset === logo && logoDark === null;
 

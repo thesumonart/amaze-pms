@@ -10,7 +10,7 @@ import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { testimonials } from '@/data/testimonials';
 
-export function Testimonials() {
+export const Testimonials = () => {
   const swiperRef = useRef<SwiperType | null>(null);
   const [isBeginning, setIsBeginning] = useState(true);
   const [isEnd, setIsEnd] = useState(false);
@@ -70,7 +70,7 @@ export function Testimonials() {
             <SwiperSlide
               key={testimonial.id}
               style={{ width: 'min(26rem, 82vw)' }}
-              className="!h-auto"
+              className="h-auto!"
             >
               <figure className="border-border bg-card flex h-full flex-col rounded-lg border p-8 shadow-[0_1px_2px_rgba(6,11,22,0.04)]">
                 <Quote className="fill-gold-500 text-gold-500 size-7" />
@@ -123,4 +123,4 @@ export function Testimonials() {
       </div>
     </section>
   );
-}
+};

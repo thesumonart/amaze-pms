@@ -6,7 +6,7 @@ import { Reveal, RevealGroup, RevealItem } from '@/components/shared/reveal-on-s
 import { Button } from '@/components/ui/button';
 import { site } from '@/data/site';
 
-export function FinalCta() {
+export const FinalCta = () => {
   return (
     <section
       id="contact"

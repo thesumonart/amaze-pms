@@ -7,7 +7,7 @@ import { DURATION, EASE_PREMIUM } from '@/components/shared/motion';
 import { site } from '@/data/site';
 import { useAnchorScroll } from '@/hooks/use-anchor-scroll';
 
-function rise(delay: number) {
+const rise = (delay: number) => {
   return {
     initial: { opacity: 0, y: 22 },
     animate: { opacity: 1, y: 0 },
@@ -15,7 +15,7 @@ function rise(delay: number) {
   };
 }
 
-export function Hero() {
+export const Hero = () => {
   const reduced = useReducedMotion() ?? false;
   const anchorScroll = useAnchorScroll();
   const r = (delay: number) => (reduced ? {} : rise(delay));

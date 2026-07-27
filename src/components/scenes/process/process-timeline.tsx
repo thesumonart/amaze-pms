@@ -10,7 +10,7 @@ import { gsap } from '@/lib/gsap';
  * five steps travel horizontally and the progress line draws in. Mobile and
  * reduced-motion users get a plain vertical timeline.
  */
-export function ProcessTimeline() {
+export const ProcessTimeline = () => {
   const sectionRef = useRef<HTMLElement>(null);
   const trackRef = useRef<HTMLDivElement>(null);
   const lineRef = useRef<HTMLDivElement>(null);

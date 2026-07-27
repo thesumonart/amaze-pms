@@ -31,7 +31,7 @@ const first = WEEKLY_TICKETS[0].tickets;
 const last = WEEKLY_TICKETS[WEEKLY_TICKETS.length - 1].tickets;
 const delta = (((last - first) / first) * 100).toFixed(1);
 
-export function TechDashboard() {
+export const TechDashboard = () => {
   return (
     <div className="glass-dark w-full rounded-xl p-6 shadow-[0_40px_80px_-32px_rgba(6,11,22,0.8)]">
       {/* Header */}
@@ -50,17 +50,17 @@ export function TechDashboard() {
 
       {/* KPI strip */}
       <div className="mt-5 grid grid-cols-3 gap-3">
-        <div className="rounded-lg bg-white/[0.04] p-3.5">
+        <div className="rounded-lg bg-white/4 p-3.5">
           <p className="text-[0.6rem] tracking-wider text-neutral-500 uppercase">SLA</p>
           <p className="mt-1 font-mono text-lg font-semibold text-white">
             98.2<span className="text-xs text-teal-400">%</span>
           </p>
         </div>
-        <div className="rounded-lg bg-white/[0.04] p-3.5">
+        <div className="rounded-lg bg-white/4 p-3.5">
           <p className="text-[0.6rem] tracking-wider text-neutral-500 uppercase">Closed</p>
           <p className="mt-1 font-mono text-lg font-semibold text-white">1,284</p>
         </div>
-        <div className="rounded-lg bg-white/[0.04] p-3.5">
+        <div className="rounded-lg bg-white/4 p-3.5">
           <p className="text-[0.6rem] tracking-wider text-neutral-500 uppercase">Avg resp.</p>
           <p className="mt-1 font-mono text-lg font-semibold text-white">
             22<span className="text-gold-300 text-xs">m</span>
@@ -69,7 +69,7 @@ export function TechDashboard() {
       </div>
 
       {/* Chart block */}
-      <div className="mt-4 rounded-lg border border-white/[0.06] bg-white/[0.03] p-4">
+      <div className="mt-4 rounded-lg border border-white/6 bg-white/3 p-4">
         {/* Chart header */}
         <div className="flex items-center justify-between">
           <div>
@@ -136,7 +136,7 @@ export function TechDashboard() {
                   color: '#fff',
                   boxShadow: '0 8px 32px rgba(0,0,0,0.4)',
                 }}
-                formatter={(value: number) => [value, 'Tickets']}
+                formatter={(value) => [value ?? '', 'Tickets']}
                 labelStyle={{ color: '#8a93a3', marginBottom: 2 }}
               />
               <Area
@@ -164,7 +164,7 @@ export function TechDashboard() {
         {SLA_ROWS.map((row) => (
           <li
             key={row.label}
-            className="flex items-center justify-between rounded-lg bg-white/[0.04] px-4 py-2.5"
+            className="flex items-center justify-between rounded-lg bg-white/4 px-4 py-2.5"
           >
             <span className="flex items-center gap-2 text-xs text-neutral-400">
               <CircleCheck className="size-3.5 text-teal-400" />
@@ -176,4 +176,4 @@ export function TechDashboard() {
       </ul>
     </div>
   );
-}
+};

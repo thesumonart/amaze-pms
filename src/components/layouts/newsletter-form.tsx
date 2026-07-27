@@ -6,7 +6,7 @@ import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 
 /** UI-only signup — wire to the client's ESP/CRM before launch. */
-export function NewsletterForm() {
+export const NewsletterForm = () => {
   const [submitted, setSubmitted] = useState(false);
 
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {

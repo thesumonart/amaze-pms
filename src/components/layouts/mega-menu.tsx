@@ -15,13 +15,13 @@ interface MegaMenuProps {
   onContactClick: (event: MouseEvent<HTMLElement>, href: string) => void;
 }
 
-export function MegaMenu({
+export const MegaMenu = ({
   open,
   onClose,
   onPointerEnter,
   onPointerLeave,
   onContactClick,
-}: MegaMenuProps) {
+}: MegaMenuProps) => {
   const handleServiceClick = (slug: string) => {
     onClose();
     requestServiceDialog(slug);

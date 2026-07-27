@@ -12,7 +12,7 @@ const STAT_ICONS: Record<string, LucideIcon> = {
   years: Award,
 };
 
-export function WhyAmaze() {
+export const WhyAmaze = () => {
   return (
     <section id="why-amaze" className="bg-canvas py-24 sm:py-32">
       <div className="container-site">

@@ -23,7 +23,7 @@ interface MobileNavProps {
   onDark: boolean;
 }
 
-export function MobileNav({ onDark }: MobileNavProps) {
+export const MobileNav = ({ onDark }: MobileNavProps) => {
   const [open, setOpen] = useState(false);
   const anchorScroll = useAnchorScroll();
 

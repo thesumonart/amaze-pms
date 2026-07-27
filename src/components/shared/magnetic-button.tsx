@@ -13,7 +13,7 @@ interface MagneticProps {
 
 /** Wrapper that makes its child gently follow the cursor within a small
  * radius. Mouse-only; inert on touch and under prefers-reduced-motion. */
-export function Magnetic({ children, className, strength = 16 }: MagneticProps) {
+export const Magnetic = ({ children, className, strength = 16 }: MagneticProps) => {
   const reducedMotion = useReducedMotion();
   const x = useMotionValue(0);
   const y = useMotionValue(0);

@@ -19,7 +19,7 @@ interface RevealProps {
 }
 
 /** Single-element scroll reveal: fade + rise, fired once. */
-export function Reveal({ children, className, delay = 0, y = 24 }: RevealProps) {
+export const Reveal = ({ children, className, delay = 0, y = 24 }: RevealProps) => {
   return (
     <motion.div
       className={className}
@@ -39,7 +39,7 @@ interface RevealGroupProps {
 }
 
 /** Parent that staggers any nested `RevealItem`s into view. */
-export function RevealGroup({ children, className }: RevealGroupProps) {
+export const RevealGroup = ({ children, className }: RevealGroupProps) => {
   return (
     <motion.div
       className={className}
@@ -58,7 +58,7 @@ interface RevealItemProps {
   className?: string;
 }
 
-export function RevealItem({ children, className }: RevealItemProps) {
+export const RevealItem = ({ children, className }: RevealItemProps) => {
   return (
     <motion.div className={className} variants={revealChild}>
       {children}

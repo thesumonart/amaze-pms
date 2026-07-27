@@ -12,7 +12,7 @@ import { cn } from '@/lib/utils';
 
 const CLOSE_DELAY_MS = 140;
 
-export function Navbar() {
+export const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
   const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);

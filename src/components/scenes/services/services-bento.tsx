@@ -9,7 +9,7 @@ import { services } from '@/data/services';
 import { OPEN_SERVICE_EVENT } from '@/lib/service-bus';
 import type { Service } from '@/types';
 
-export function ServicesBento() {
+export const ServicesBento = () => {
   const [activeService, setActiveService] = useState<Service | null>(null);
 
   useEffect(() => {

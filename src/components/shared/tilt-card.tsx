@@ -13,7 +13,7 @@ interface TiltCardProps {
 
 /** Subtle 3D tilt following the pointer, clamped and spring-smoothed.
  * Mouse-only; flat on touch and under prefers-reduced-motion. */
-export function TiltCard({ children, className, maxTilt = 7 }: TiltCardProps) {
+export const TiltCard = ({ children, className, maxTilt = 7 }: TiltCardProps) => {
   const reducedMotion = useReducedMotion();
   const rotateX = useMotionValue(0);
   const rotateY = useMotionValue(0);

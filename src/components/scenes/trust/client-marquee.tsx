@@ -3,7 +3,7 @@ import { Marquee } from '@/components/shared/marquee';
 import { Reveal } from '@/components/shared/reveal-on-scroll';
 import { clientLogos } from '@/data/clients';
 
-export function ClientMarquee() {
+export const ClientMarquee = () => {
   return (
     <section id="trusted-by" className="border-border bg-canvas border-b py-16 sm:py-20">
       <Reveal className="container-site">
@@ -13,12 +13,7 @@ export function ClientMarquee() {
       </Reveal>
       <Marquee className="mt-10" durationSeconds={45}>
         {clientLogos.map((client) => (
-          <div
-            key={client.id}
-            // Fixed box + object-contain normalises logos that arrive at wildly
-            // different aspect ratios to one optical height.
-            className="flex h-10 w-[9.5rem] shrink-0 items-center justify-center"
-          >
+          <div key={client.id} className="flex h-10 w-38 shrink-0 items-center justify-center">
             {client.logo ? (
               <Image
                 src={client.logo.src}
@@ -37,4 +32,4 @@ export function ClientMarquee() {
       </Marquee>
     </section>
   );
-}
+};

@@ -13,7 +13,7 @@ const SOCIAL_ICON_PATHS: Record<string, string> = {
     'M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z',
 };
 
-export function Footer() {
+export const Footer = () => {
   return (
     <footer className="noise bg-ink-950 text-neutral-400">
       <div className="container-site">
@@ -127,7 +127,7 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="flex flex-col gap-2 border-t border-white/10 py-6 text-xs sm:flex-row sm:items-center sm:justify-between">
+        <div className="flex flex-col gap-2 border-t border-white/10 py-6 text-center text-xs sm:items-center sm:justify-between lg:flex-row lg:text-start">
           <p>
             © {new Date().getFullYear()} {site.legalName}. All rights reserved.
           </p>
@@ -136,4 +136,4 @@ export function Footer() {
       </div>
     </footer>
   );
-}
+};

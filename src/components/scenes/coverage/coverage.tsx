@@ -5,7 +5,7 @@ import { Badge } from "@/components/ui/badge";
 import { coverageCities } from "@/data/coverage";
 import { cn } from "@/lib/utils";
 
-export function Coverage() {
+export const Coverage = () => {
   return (
     <section id="coverage" className="bg-canvas py-24 sm:py-32">
       <div className="container-site">

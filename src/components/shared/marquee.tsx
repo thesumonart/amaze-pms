@@ -9,7 +9,7 @@ interface MarqueeProps {
 
 /** Infinite horizontal loop: two identical copies of the content shift by
  * -50%. Pauses on hover; frozen entirely under prefers-reduced-motion. */
-export function Marquee({ children, className, durationSeconds = 40 }: MarqueeProps) {
+export const Marquee = ({ children, className, durationSeconds = 40 }: MarqueeProps) => {
   return (
     <div
       className={cn(
