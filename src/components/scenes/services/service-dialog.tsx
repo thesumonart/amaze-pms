@@ -42,7 +42,7 @@ export function ServiceDialog({ service, onClose }: ServiceDialogProps) {
       <DialogContent className="max-w-lg gap-0 rounded-lg p-0">
         {service ? (
           <>
-            <div className="noise relative overflow-hidden rounded-t-lg bg-[linear-gradient(135deg,var(--color-ink-950),var(--color-navy-800))] p-7">
+            <div className="relative overflow-hidden rounded-t-lg bg-[linear-gradient(135deg,var(--color-ink-950),var(--color-navy-800))] p-7">
               <div
                 aria-hidden
                 className="absolute inset-0 bg-[radial-gradient(70%_80%_at_85%_10%,color-mix(in_srgb,var(--color-brand-500)_35%,transparent)_0%,transparent_65%)]"

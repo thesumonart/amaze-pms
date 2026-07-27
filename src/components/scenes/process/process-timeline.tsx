@@ -79,7 +79,7 @@ export function ProcessTimeline() {
           {processSteps.map((step) => (
             <article
               key={step.id}
-              className="glass-dark relative flex flex-col rounded-lg p-7 lg:w-[21rem] lg:shrink-0 lg:p-8"
+              className="glass-dark relative flex flex-col rounded-lg p-7 lg:w-84 lg:shrink-0 lg:p-8"
             >
               <div className="flex items-center justify-between">
                 <span className="font-mono text-sm text-gold-300">

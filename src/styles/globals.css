@@ -25,8 +25,8 @@
 
   --color-neutral-50: #f7f8fa;
   --color-neutral-100: #eef0f3;
-  --color-neutral-400: #8a93a3; /* dark-background muted text only — fails WCAG AA on white */
-  --color-neutral-500: #5f6979; /* muted text on light backgrounds — 5.55:1 on white */
+  --color-neutral-400: #8a93a3;
+  --color-neutral-500: #5f6979;
   --color-neutral-700: #333c4d;
   --color-neutral-900: #14181f;
 

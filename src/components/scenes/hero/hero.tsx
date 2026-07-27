@@ -47,7 +47,7 @@ export function Hero() {
     <section
       ref={sectionRef}
       id="top"
-      className="noise relative flex min-h-[100svh] flex-col justify-end overflow-hidden bg-ink-950"
+      className="noise flex min-h-svh flex-col justify-end overflow-hidden bg-ink-950"
     >
       <HeroBackground />
       <GradientBlob />

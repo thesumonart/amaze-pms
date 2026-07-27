@@ -27,7 +27,7 @@ export function GradientBlob() {
       className="pointer-events-none absolute inset-0 overflow-hidden"
     >
       <motion.div
-        className="absolute size-[36rem] -translate-x-1/2 -translate-y-1/2 rounded-full opacity-50 mix-blend-screen blur-[110px]"
+        className="absolute size-144 -translate-x-1/2 -translate-y-1/2 rounded-full opacity-50 mix-blend-screen blur-[110px]"
         style={{
           x: springX,
           y: springY,

@@ -61,7 +61,7 @@ export function Navbar() {
         solid ? "glass-nav" : "border-b border-transparent bg-transparent",
       )}
     >
-      <div className="container-site relative flex h-16 items-center justify-between lg:h-[4.5rem]">
+      <div className="container-site relative flex h-16 items-center justify-between lg:h-18">
         <a
           href="#top"
           aria-label="Amaze PMS — back to top"

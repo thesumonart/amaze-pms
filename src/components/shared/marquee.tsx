@@ -17,12 +17,12 @@ export function Marquee({
   return (
     <div
       className={cn(
-        "group overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_12%,black_88%,transparent)]",
+        "group overflow-hidden mask-[linear-gradient(to_right,transparent,black_12%,black_88%,transparent)]",
         className,
       )}
     >
       <div
-        className="flex w-max animate-marquee group-hover:[animation-play-state:paused] motion-reduce:animate-none"
+        className="flex w-max animate-marquee group-hover:paused motion-reduce:animate-none"
         style={{ "--marquee-duration": `${durationSeconds}s` } as CSSProperties}
       >
         <div className="flex items-center gap-14 pr-14">{children}</div>

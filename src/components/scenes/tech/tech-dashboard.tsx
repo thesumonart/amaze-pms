@@ -28,19 +28,19 @@ export function TechDashboard() {
       </div>
 
       <div className="mt-5 grid grid-cols-3 gap-3">
-        <div className="rounded-md bg-white/[0.04] p-4">
+        <div className="rounded-md bg-white/4 p-4">
           <p className="text-[0.65rem] text-neutral-400">SLA compliance</p>
           <p className="mt-1 font-mono text-xl font-semibold text-white">
             98.2<span className="text-sm text-teal-400">%</span>
           </p>
         </div>
-        <div className="rounded-md bg-white/[0.04] p-4">
+        <div className="rounded-md bg-white/4 p-4">
           <p className="text-[0.65rem] text-neutral-400">Tickets closed</p>
           <p className="mt-1 font-mono text-xl font-semibold text-white">
             1,284
           </p>
         </div>
-        <div className="rounded-md bg-white/[0.04] p-4">
+        <div className="rounded-md bg-white/4 p-4">
           <p className="text-[0.65rem] text-neutral-400">Avg. response</p>
           <p className="mt-1 font-mono text-xl font-semibold text-white">
             22<span className="text-sm text-gold-300"> min</span>
@@ -48,7 +48,7 @@ export function TechDashboard() {
         </div>
       </div>
 
-      <div className="mt-3 rounded-md bg-white/[0.04] p-4">
+      <div className="mt-3 rounded-md bg-white/4 p-4">
         <div className="flex items-center justify-between">
           <p className="text-[0.65rem] text-neutral-400">
             Helpdesk volume — last 7 days
@@ -70,7 +70,7 @@ export function TechDashboard() {
         {SLA_ROWS.map((row) => (
           <li
             key={row.label}
-            className="flex items-center justify-between rounded-md bg-white/[0.04] px-4 py-2.5"
+            className="flex items-center justify-between rounded-md bg-white/4 px-4 py-2.5"
           >
             <span className="flex items-center gap-2 text-xs text-neutral-400">
               <CircleCheck className="size-3.5 text-teal-400" />

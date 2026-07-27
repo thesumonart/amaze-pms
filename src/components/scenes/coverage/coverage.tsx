@@ -33,7 +33,7 @@ export function Coverage() {
               >
                 <div
                   aria-hidden
-                  className="absolute inset-0 bg-[radial-gradient(circle_at_1px_1px,color-mix(in_srgb,currentColor_12%,transparent)_1px,transparent_0)] bg-[size:20px_20px] opacity-[0.35]"
+                  className="absolute inset-0 bg-[radial-gradient(circle_at_1px_1px,color-mix(in_srgb,currentColor_12%,transparent)_1px,transparent_0)] bg-size-[20px_20px] opacity-[0.35]"
                 />
                 <div className="relative">
                   <div className="flex items-start justify-between">

@@ -14,7 +14,7 @@ export function FinalCta() {
   return (
     <section
       id="contact"
-      className="noise relative overflow-hidden bg-[linear-gradient(160deg,var(--color-ink-950)_0%,var(--color-navy-800)_55%,var(--color-navy-600)_100%)] pt-24 pb-40 sm:pt-32 sm:pb-44"
+      className="noise overflow-hidden bg-[linear-gradient(160deg,var(--color-ink-950)_0%,var(--color-navy-800)_55%,var(--color-navy-600)_100%)] pt-24 pb-40 sm:pt-32 sm:pb-44"
     >
       <div
         aria-hidden

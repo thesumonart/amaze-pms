@@ -39,7 +39,7 @@ export function ServicesBento() {
           />
         </div>
 
-        <RevealGroup className="mt-14 grid grid-cols-1 gap-4 [grid-auto-flow:dense] sm:auto-rows-fr sm:grid-cols-2 lg:grid-cols-4">
+        <RevealGroup className="mt-14 grid grid-cols-1 gap-4 grid-flow-dense sm:auto-rows-fr sm:grid-cols-2 lg:grid-cols-4">
           {services.map((service) => (
             <ServiceCard
               key={service.slug}
