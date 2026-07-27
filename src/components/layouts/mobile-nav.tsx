@@ -4,7 +4,6 @@ import { Menu, Phone } from "lucide-react";
 import type { MouseEvent } from "react";
 import { useState } from "react";
 import { Logo } from "@/components/layouts/logo";
-import { useAnchorScroll } from "@/components/shared/hooks/use-anchor-scroll";
 import {
   Accordion,
   AccordionContent,
@@ -22,6 +21,7 @@ import {
 import { primaryNavLinks } from "@/data/nav-links";
 import { serviceCategories, services } from "@/data/services";
 import { site } from "@/data/site";
+import { useAnchorScroll } from "@/hooks/use-anchor-scroll";
 import { requestServiceDialog } from "@/lib/service-bus";
 import { cn } from "@/lib/utils";
 

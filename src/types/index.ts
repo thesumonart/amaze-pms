@@ -58,11 +58,17 @@ export interface CoverageCity {
   isHeadquarters: boolean;
 }
 
+export interface ImageAsset {
+  src: string;
+  width: number;
+  height: number;
+}
+
 export interface ClientLogo {
   id: string;
   name: string;
-  sector: string;
-  icon: LucideIcon;
+  /** Null renders the typographic fallback instead of an image. */
+  logo: ImageAsset | null;
 }
 
 export interface NavLink {

@@ -2,7 +2,7 @@
 
 import type { MouseEvent } from "react";
 import { useCallback } from "react";
-import { useLenis } from "@/components/shared/hooks/use-lenis";
+import { useLenis } from "@/hooks/use-lenis";
 
 /**
  * Smooth-scrolls in-page anchors through Lenis when it's active; falls back

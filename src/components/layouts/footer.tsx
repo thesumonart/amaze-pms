@@ -34,7 +34,7 @@ export function Footer() {
 
         <div className="grid gap-12 pb-16 md:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr_1.2fr]">
           <div>
-            <Logo onDark />
+            <Logo onDark className="h-12" />
             <p className="mt-5 max-w-xs text-sm leading-relaxed">
               {site.legalName}. {site.parent}. Keeping India's campuses,
               communities and workplaces running since {site.foundedYear}.

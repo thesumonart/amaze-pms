@@ -2,8 +2,8 @@
 
 import { motion, useReducedMotion, useSpring } from "motion/react";
 import { useRef } from "react";
-import { useMediaQuery } from "@/components/shared/hooks/use-media-query";
-import { useMousePosition } from "@/components/shared/hooks/use-mouse-position";
+import { useMediaQuery } from "@/hooks/use-media-query";
+import { useMousePosition } from "@/hooks/use-mouse-position";
 
 /**
  * Soft cursor-follow gradient inside the hero. Fills its nearest positioned

@@ -6,7 +6,6 @@ import { useEffect, useRef } from "react";
 import { HeroBackground } from "@/components/scenes/hero/hero-background";
 import { HeroStats } from "@/components/scenes/hero/hero-stats";
 import { GradientBlob } from "@/components/shared/gradient-blob";
-import { useAnchorScroll } from "@/components/shared/hooks/use-anchor-scroll";
 import { Magnetic } from "@/components/shared/magnetic-button";
 import {
   EASE_PREMIUM,
@@ -15,6 +14,7 @@ import {
 } from "@/components/shared/motion";
 import { Button } from "@/components/ui/button";
 import { site } from "@/data/site";
+import { useAnchorScroll } from "@/hooks/use-anchor-scroll";
 import { gsap } from "@/lib/gsap";
 
 export function Hero() {

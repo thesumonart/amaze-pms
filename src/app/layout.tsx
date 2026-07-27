@@ -4,6 +4,7 @@ import "@/styles/globals.css";
 import { Providers } from "@/app/providers";
 import { Footer } from "@/components/layouts/footer";
 import { Navbar } from "@/components/layouts/navbar";
+import { favicon } from "@/data/brand";
 import { site } from "@/data/site";
 
 const geistSans = Geist({
@@ -49,6 +50,13 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: siteTitle,
     description: site.description,
+  },
+  // Wired explicitly: the files live in /public/icons, outside the app-directory
+  // convention Next auto-detects. Only entries backed by a real file are listed
+  // so nothing 404s — see data/brand.ts for the sizes still to be supplied.
+  icons: {
+    icon: [{ url: favicon.src, type: favicon.type, sizes: favicon.sizes }],
+    shortcut: [{ url: favicon.src, type: favicon.type }],
   },
 };
 

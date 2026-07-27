@@ -5,9 +5,9 @@ import { useEffect, useRef, useState } from "react";
 import { Logo } from "@/components/layouts/logo";
 import { MegaMenu } from "@/components/layouts/mega-menu";
 import { MobileNav } from "@/components/layouts/mobile-nav";
-import { useAnchorScroll } from "@/components/shared/hooks/use-anchor-scroll";
 import { Button } from "@/components/ui/button";
 import { primaryNavLinks } from "@/data/nav-links";
+import { useAnchorScroll } from "@/hooks/use-anchor-scroll";
 import { cn } from "@/lib/utils";
 
 const CLOSE_DELAY_MS = 140;
@@ -67,7 +67,12 @@ export function Navbar() {
           aria-label="Amaze PMS — back to top"
           onClick={(event) => anchorScroll(event, "#top")}
         >
-          <Logo onDark={!solid} />
+          <Logo
+            onDark={!solid}
+            variant={solid ? "mark" : "full"}
+            priority
+            className="h-9 lg:h-10"
+          />
         </a>
 
         <nav aria-label="Primary" className="hidden items-center gap-7 lg:flex">

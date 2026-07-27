@@ -2,7 +2,6 @@
 
 import { ArrowRight, CircleCheck } from "lucide-react";
 import type { MouseEvent } from "react";
-import { useAnchorScroll } from "@/components/shared/hooks/use-anchor-scroll";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import {
@@ -13,6 +12,7 @@ import {
   DialogTitle,
 } from "@/components/ui/dialog";
 import { serviceCategories } from "@/data/services";
+import { useAnchorScroll } from "@/hooks/use-anchor-scroll";
 import type { Service } from "@/types";
 
 interface ServiceDialogProps {
