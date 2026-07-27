@@ -1,140 +1,145 @@
-"use client";
+'use client';
 
-import { ArrowRight, ChevronDown } from "lucide-react";
-import { motion } from "motion/react";
-import { useEffect, useRef } from "react";
-import { HeroBackground } from "@/components/scenes/hero/hero-background";
-import { HeroStats } from "@/components/scenes/hero/hero-stats";
-import { GradientBlob } from "@/components/shared/gradient-blob";
-import { Magnetic } from "@/components/shared/magnetic-button";
-import {
-  EASE_PREMIUM,
-  revealChild,
-  revealParent,
-} from "@/components/shared/motion";
-import { Button } from "@/components/ui/button";
-import { site } from "@/data/site";
-import { useAnchorScroll } from "@/hooks/use-anchor-scroll";
-import { gsap } from "@/lib/gsap";
+import { ArrowRight, ChevronDown } from 'lucide-react';
+import { motion, useReducedMotion } from 'motion/react';
+import { Magnetic } from '@/components/shared/magnetic-button';
+import { DURATION, EASE_PREMIUM } from '@/components/shared/motion';
+import { site } from '@/data/site';
+import { useAnchorScroll } from '@/hooks/use-anchor-scroll';
+
+function rise(delay: number) {
+  return {
+    initial: { opacity: 0, y: 22 },
+    animate: { opacity: 1, y: 0 },
+    transition: { duration: DURATION.slow, ease: EASE_PREMIUM, delay },
+  };
+}
 
 export function Hero() {
-  const sectionRef = useRef<HTMLElement>(null);
-  const contentRef = useRef<HTMLDivElement>(null);
+  const reduced = useReducedMotion() ?? false;
   const anchorScroll = useAnchorScroll();
-
-  useEffect(() => {
-    const mm = gsap.matchMedia();
-    mm.add(
-      "(min-width: 1024px) and (prefers-reduced-motion: no-preference)",
-      () => {
-        gsap.to(contentRef.current, {
-          yPercent: -14,
-          opacity: 0.15,
-          ease: "none",
-          scrollTrigger: {
-            trigger: sectionRef.current,
-            start: "top top",
-            end: "bottom 35%",
-            scrub: true,
-          },
-        });
-      },
-    );
-    return () => mm.revert();
-  }, []);
+  const r = (delay: number) => (reduced ? {} : rise(delay));
 
   return (
     <section
-      ref={sectionRef}
       id="top"
-      className="noise flex min-h-svh flex-col justify-end overflow-hidden bg-ink-950"
+      className="noise bg-ink-950 flex min-h-svh items-center justify-center overflow-hidden"
     >
-      <HeroBackground />
-      <GradientBlob />
-
-      <div
-        ref={contentRef}
-        className="container-site relative flex flex-1 flex-col justify-center pt-32 pb-10 lg:pt-36"
-      >
-        <motion.div
-          variants={revealParent}
-          initial="hidden"
-          animate="visible"
-          className="mx-auto flex max-w-4xl flex-col items-center text-center"
+      <div className="container-site relative z-10 py-32 text-center">
+        {/* Eyebrow — rule lines expand from center on entrance */}
+        <motion.p
+          {...r(0)}
+          className="text-eyebrow mb-6 flex items-center justify-center gap-3 font-mono tracking-(--text-eyebrow--letter-spacing) text-neutral-400 uppercase"
         >
-          <motion.p
-            variants={revealChild}
-            className="glass-dark rounded-full px-4 py-2 font-mono text-eyebrow uppercase text-gold-300"
-          >
-            {site.parent} · Since {site.foundedYear}
-          </motion.p>
+          <motion.span
+            aria-hidden
+            className="bg-gold-500/50 h-px"
+            initial={{ width: 0 }}
+            animate={{ width: 24 }}
+            transition={
+              reduced ? { duration: 0 } : { duration: 0.8, ease: EASE_PREMIUM, delay: 0.35 }
+            }
+          />
+          {site.parent} · Since {site.foundedYear}
+          <motion.span
+            aria-hidden
+            className="bg-gold-500/50 h-px"
+            initial={{ width: 0 }}
+            animate={{ width: 24 }}
+            transition={
+              reduced ? { duration: 0 } : { duration: 0.8, ease: EASE_PREMIUM, delay: 0.35 }
+            }
+          />
+        </motion.p>
 
-          <motion.h1
-            variants={revealChild}
-            className="mt-8 text-display font-semibold text-white text-balance"
-          >
-            Facility management,{" "}
-            <span className="text-gradient-brand">engineered.</span>
-          </motion.h1>
+        {/* Headline */}
+        <motion.h1
+          {...r(0.09)}
+          className="text-display mx-auto max-w-4xl leading-(--text-display--line-height) font-semibold tracking-(--text-display--letter-spacing) text-white"
+        >
+          Facility management, <span className="text-gradient-brand">engineered.</span>
+        </motion.h1>
 
-          <motion.p
-            variants={revealChild}
-            className="mt-6 max-w-2xl text-lede text-neutral-400"
-          >
-            15,000+ trained professionals keeping 20M+ sq. ft. of campuses,
-            communities and workplaces running — with the discipline of an
-            engineering company, not the promises of a vendor.
-          </motion.p>
+        {/* Subhead */}
+        <motion.p
+          {...r(0.18)}
+          className="text-lede mx-auto mt-6 max-w-2xl leading-(--text-lede--line-height) text-neutral-400"
+        >
+          HVAC, power, water, security and housekeeping across 20M+ sq. ft. of campuses, communities
+          and institutions — run with the discipline of an engineering company.
+        </motion.p>
 
-          <motion.div
-            variants={revealChild}
-            className="mt-10 flex flex-col items-center gap-4 sm:flex-row"
-          >
-            <Magnetic>
-              <Button asChild variant="premium" size="xl">
-                <a
-                  href="#contact"
-                  onClick={(event) => anchorScroll(event, "#contact")}
-                >
-                  Book a Free Inspection
-                  <ArrowRight data-icon="inline-end" className="size-4" />
-                </a>
-              </Button>
-            </Magnetic>
-            <Button asChild variant="premium-outline" size="xl">
-              <a
-                href="#services"
-                onClick={(event) => anchorScroll(event, "#services")}
+        {/* CTA row */}
+        <motion.div {...r(0.27)} className="mt-10 flex flex-wrap items-center justify-center gap-6">
+          {/* Primary button — magnetic pull + lift on hover, press on tap */}
+          <Magnetic strength={14}>
+            <motion.a
+              href="#contact"
+              onClick={(e) => anchorScroll(e, '#contact')}
+              whileHover={
+                reduced ? {} : { y: -2, boxShadow: '0 12px 28px -8px var(--color-brand-500)' }
+              }
+              whileTap={
+                reduced
+                  ? {}
+                  : { scale: 0.97, y: 0, boxShadow: '0 4px 12px -4px var(--color-brand-500)' }
+              }
+              transition={{ duration: 0.18, ease: EASE_PREMIUM }}
+              className="bg-accent text-accent-foreground glow-cta inline-flex h-12 items-center gap-2 rounded-full px-7 text-base font-semibold"
+            >
+              Book a free inspection
+              <motion.span
+                className="inline-flex"
+                whileHover={reduced ? {} : { x: 3 }}
+                transition={{ duration: 0.2, ease: EASE_PREMIUM }}
               >
-                Explore services
-              </a>
-            </Button>
-          </motion.div>
-        </motion.div>
+                <ArrowRight className="size-4" />
+              </motion.span>
+            </motion.a>
+          </Magnetic>
 
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.9, ease: EASE_PREMIUM, delay: 1.4 }}
-          className="mt-14 flex justify-center lg:mt-16"
-        >
-          <a
-            href="#trusted-by"
-            onClick={(event) => anchorScroll(event, "#trusted-by")}
-            aria-label="Scroll to content"
-            className="flex flex-col items-center gap-2 text-neutral-400 transition-colors hover:text-white"
+          {/* Ghost link — underline draws in, arrow nudges */}
+          <motion.a
+            href="#services"
+            onClick={(e) => anchorScroll(e, '#services')}
+            className="group inline-flex items-center gap-2 py-1 text-sm font-medium text-neutral-300"
+            whileHover={reduced ? {} : { color: 'var(--color-neutral-50)' }}
+            transition={{ duration: 0.2 }}
           >
-            <span className="font-mono text-[0.65rem] uppercase tracking-[0.24em]">
-              Scroll
+            <span className="relative">
+              See what we operate
+              <span className="absolute top-full right-0 h-px w-0 rounded-full bg-current duration-200 group-hover:right-auto group-hover:left-0 group-hover:w-full" />
             </span>
-            <ChevronDown className="size-4 animate-scroll-cue" />
-          </a>
+            <motion.span
+              className="inline-flex"
+              whileHover={reduced ? {} : { x: 4 }}
+              transition={{ duration: 0.25, ease: EASE_PREMIUM }}
+            >
+              <ArrowRight className="size-4" />
+            </motion.span>
+          </motion.a>
         </motion.div>
+
+        <motion.p
+          {...r(0.36)}
+          className="mt-10 font-mono text-xs tracking-widest text-neutral-500 uppercase"
+        >
+          20M+ sq. ft. · 15,000+ professionals · operating since {site.foundedYear}
+        </motion.p>
       </div>
 
-      <div className="container-site relative pb-8 lg:pb-12">
-        <HeroStats />
-      </div>
+      {/* Scroll cue */}
+      <motion.a
+        {...r(0.9)}
+        href="#trusted-by"
+        onClick={(e) => anchorScroll(e, '#trusted-by')}
+        aria-label="Scroll to content"
+        whileHover={reduced ? {} : { color: 'var(--color-neutral-300)', y: 2 }}
+        transition={{ duration: 0.2, ease: EASE_PREMIUM }}
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 text-neutral-500"
+      >
+        <ChevronDown className="animate-scroll-cue size-5" />
+      </motion.a>
     </section>
   );
 }

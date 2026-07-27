@@ -34,7 +34,6 @@ export const services: Service[] = [
       "Consumables management and restocking",
     ],
     icon: Sparkles,
-    span: "large",
   },
   {
     slug: "mep",
@@ -50,7 +49,6 @@ export const services: Service[] = [
       "24/7 breakdown response with defined SLAs",
     ],
     icon: Wrench,
-    span: "wide",
   },
   {
     slug: "security",
@@ -65,7 +63,6 @@ export const services: Service[] = [
       "Patrol tracking and incident escalation SOPs",
     ],
     icon: ShieldCheck,
-    span: "standard",
   },
   {
     slug: "pest-control",
@@ -80,7 +77,6 @@ export const services: Service[] = [
       "Food-safety compliant treatment records",
     ],
     icon: Bug,
-    span: "standard",
   },
   {
     slug: "horticulture",
@@ -95,7 +91,6 @@ export const services: Service[] = [
       "Irrigation scheduling and soil care",
     ],
     icon: Trees,
-    span: "standard",
   },
   {
     slug: "water-treatment",
@@ -110,7 +105,6 @@ export const services: Service[] = [
       "Recycled water for flushing and landscaping",
     ],
     icon: Droplets,
-    span: "tall",
   },
   {
     slug: "parking",
@@ -124,7 +118,6 @@ export const services: Service[] = [
       "Valet and visitor parking coordination",
     ],
     icon: Car,
-    span: "standard",
   },
   {
     slug: "swimming-pool",
@@ -138,7 +131,6 @@ export const services: Service[] = [
       "Filtration plant operation and backwashing",
     ],
     icon: WavesLadder,
-    span: "standard",
   },
   {
     slug: "deep-cleaning",
@@ -152,7 +144,6 @@ export const services: Service[] = [
       "Post-construction and handover cleaning",
     ],
     icon: SprayCan,
-    span: "standard",
   },
   {
     slug: "workplace-support",
@@ -166,6 +157,5 @@ export const services: Service[] = [
       "Facility helpdesk and ticket management",
     ],
     icon: Briefcase,
-    span: "wide",
   },
 ];

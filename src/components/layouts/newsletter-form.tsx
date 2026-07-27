@@ -1,9 +1,9 @@
-"use client";
+'use client';
 
-import { CircleCheck, Send } from "lucide-react";
-import type { FormEvent } from "react";
-import { useState } from "react";
-import { Button } from "@/components/ui/button";
+import { CircleCheck, Send } from 'lucide-react';
+import type { FormEvent } from 'react';
+import { useState } from 'react';
+import { Button } from '@/components/ui/button';
 
 /** UI-only signup — wire to the client's ESP/CRM before launch. */
 export function NewsletterForm() {
@@ -33,9 +33,14 @@ export function NewsletterForm() {
         type="email"
         required
         placeholder="Work email"
-        className="h-12 flex-1 rounded-full border border-white/10 bg-white/5 px-5 text-sm text-white placeholder:text-neutral-400 focus-visible:border-brand-400 focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-brand-400/30"
+        className="focus-visible:border-brand-400 focus-visible:ring-brand-400/30 h-12 min-h-12 flex-1 rounded-full border border-white/10 bg-white/5 px-5 text-sm text-white backdrop-blur-md transition-all duration-300 placeholder:text-neutral-400 focus-visible:ring-3 focus-visible:outline-none"
       />
-      <Button type="submit" variant="premium" size="xl" className="shrink-0">
+      <Button
+        type="submit"
+        variant="premium"
+        size="xl"
+        className="shrink-0 cursor-pointer transition-all duration-300"
+      >
         Subscribe
         <Send data-icon="inline-end" className="size-4" />
       </Button>

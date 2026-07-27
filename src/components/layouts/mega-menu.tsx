@@ -35,11 +35,12 @@ export function MegaMenu({
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: 4, transition: { duration: DURATION.fast } }}
           transition={{ duration: 0.35, ease: EASE_PREMIUM }}
-          className="absolute inset-x-0 top-full hidden justify-center px-6 pt-3 lg:flex"
+          className="pointer-events-none absolute inset-x-0 top-full hidden justify-center px-6 pt-3 lg:flex"
           onMouseEnter={onPointerEnter}
           onMouseLeave={onPointerLeave}
         >
-          <div className="w-full max-w-5xl overflow-hidden rounded-lg border border-border bg-popover shadow-[0_24px_80px_-24px_rgba(6,11,22,0.35)]">
+          {/* Only the panel takes the pointer — the gutters beside it must not hold the menu open. */}
+          <div className="pointer-events-auto w-full max-w-5xl overflow-hidden rounded-lg border border-border bg-popover shadow-[0_24px_80px_-24px_rgba(6,11,22,0.35)]">
             <div className="grid grid-cols-2 gap-x-8 gap-y-8 p-8 xl:grid-cols-4">
               {serviceCategories.map((category) => (
                 <div key={category.id}>
@@ -54,7 +55,7 @@ export function MegaMenu({
                           <button
                             type="button"
                             onClick={() => handleServiceClick(service.slug)}
-                            className="group flex w-full items-start gap-3 rounded-md p-2 text-left transition-colors hover:bg-muted"
+                            className="group flex w-full cursor-pointer items-start gap-3 rounded-md p-2 text-left transition-colors hover:bg-muted"
                           >
                             <span className="mt-0.5 flex size-8 shrink-0 items-center justify-center rounded-sm bg-brand-500/10 text-brand-500 transition-colors group-hover:bg-brand-500 group-hover:text-white">
                               <service.icon className="size-4" />

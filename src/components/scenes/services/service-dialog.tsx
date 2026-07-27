@@ -39,7 +39,7 @@ export function ServiceDialog({ service, onClose }: ServiceDialogProps) {
         if (!open) onClose();
       }}
     >
-      <DialogContent className="max-w-lg gap-0 rounded-lg p-0">
+      <DialogContent className="w-[calc(100%-2rem)] max-w-md gap-0 rounded-lg p-0 [&_[data-slot=dialog-close]]:text-white/50 [&_[data-slot=dialog-close]]:hover:bg-white/10 [&_[data-slot=dialog-close]]:hover:text-white data-open:slide-in-from-bottom-8 data-closed:slide-out-to-bottom-8">
         {service ? (
           <>
             <div className="relative overflow-hidden rounded-t-lg bg-[linear-gradient(135deg,var(--color-ink-950),var(--color-navy-800))] p-7">

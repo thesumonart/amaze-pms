@@ -1,6 +1,6 @@
-@import "tailwindcss";
-@import "tw-animate-css";
-@import "shadcn/tailwind.css";
+@import 'tailwindcss';
+@import 'tw-animate-css';
+@import 'shadcn/tailwind.css';
 
 @custom-variant dark (&:is(.dark *));
 
@@ -34,8 +34,7 @@
 
   /* Typography ------------------------------------------------------- */
   --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
-  --font-mono:
-    var(--font-geist-mono), ui-monospace, "SFMono-Regular", monospace;
+  --font-mono: var(--font-geist-mono), ui-monospace, 'SFMono-Regular', monospace;
 
   --text-display: clamp(2.75rem, 2rem + 4vw, 5.25rem);
   --text-display--line-height: 1.02;
@@ -207,11 +206,18 @@
 }
 
 @utility glass-nav {
-  background: color-mix(in srgb, var(--color-canvas) 72%, transparent);
-  border-bottom: 1px solid
-    color-mix(in srgb, var(--color-ink-950) 8%, transparent);
-  backdrop-filter: blur(20px) saturate(1.4);
-  -webkit-backdrop-filter: blur(20px) saturate(1.4);
+  background: color-mix(in srgb, var(--color-canvas) 80%, transparent);
+  border-bottom: 1px solid color-mix(in srgb, var(--color-ink-950) 8%, transparent);
+  backdrop-filter: blur(28px) saturate(1.6);
+  -webkit-backdrop-filter: blur(28px) saturate(1.6);
+}
+
+/* Nav over a dark hero — blurs the scene without reading as a solid bar. */
+@utility glass-nav-ghost {
+  background: color-mix(in srgb, var(--color-ink-950) 28%, transparent);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(24px) saturate(1.4);
+  -webkit-backdrop-filter: blur(24px) saturate(1.4);
 }
 
 @utility text-gradient-brand {
@@ -231,8 +237,7 @@
 }
 
 @utility glow-gold {
-  box-shadow: 0 0 60px -12px
-    color-mix(in srgb, var(--color-gold-500) 65%, transparent);
+  box-shadow: 0 0 60px -12px color-mix(in srgb, var(--color-gold-500) 65%, transparent);
 }
 
 /* Film-grain overlay for dark scenes — keeps large gradients from banding. */
@@ -240,7 +245,7 @@
   position: relative;
 }
 .noise::after {
-  content: "";
+  content: '';
   position: absolute;
   inset: 0;
   pointer-events: none;

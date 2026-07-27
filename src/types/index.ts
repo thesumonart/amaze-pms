@@ -8,8 +8,6 @@ export interface Service {
   description: string;
   highlights: string[];
   icon: LucideIcon;
-  /** Grid placement hint for the bento layout. */
-  span: "large" | "wide" | "tall" | "standard";
 }
 
 export type ServiceCategoryId =
